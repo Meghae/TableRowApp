@@ -20,18 +20,18 @@ class TableRowViewModel {
     var weatherObj = TableData()
     
     func getTableRowData(){
-         self.vcDelegate?.animateActivityIndicator(shouldLoad: true)
+        self.vcDelegate?.animateActivityIndicator(shouldLoad: true)
         let url = WebConstants.tableDataUrl
         TableRowApiManager.getTableDateRowDetails(urlString: url) { [weak self]
             (response,error) in
             self?.vcDelegate?.animateActivityIndicator(shouldLoad: false)
             DispatchQueue.main.async{
-            if let tableResponse = response{
-                self?.delegate?.getTableResponse(data: tableResponse)
-              }
-            else{
-                self?.vcDelegate?.popUpAlertMessage(title: "Error", message: error ?? "Something went wrong. Please try again later", buttonTitle: "OK")
-            }
+                if let tableResponse = response{
+                    self?.delegate?.getTableResponse(data: tableResponse)
+                }
+                else{
+                    self?.vcDelegate?.popUpAlertMessage(title: "Error", message: error ?? "Something went wrong. Please try again later", buttonTitle: "OK")
+                }
             }
         }
     }
