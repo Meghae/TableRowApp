@@ -1,0 +1,6 @@
+framework module Pods_TableRowImagesTests {
+  umbrella header "Pods-TableRowImagesTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
