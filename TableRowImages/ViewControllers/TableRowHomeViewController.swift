@@ -13,6 +13,7 @@ class TableRowHomeViewController: UITableViewController {
     var tableRowViewModel = TableRowViewModel()
 //    private var dataTableView: UITableView!
     private var tableArray = [Rows]()
+  
     
     let cellId = "cellId"
     var products : [Rows]  = [Rows]()
@@ -104,7 +105,7 @@ extension TableRowHomeViewController: TableDataProtocol {
     //getting back the data from viewModel
     func getTableResponse(data:TableData){
         for obj in  data.rows ?? []{
-            if obj.title != nil{
+            if obj.title != nil {
                 self.tableArray.append(obj)
             }
         }
@@ -115,4 +116,5 @@ extension TableRowHomeViewController: TableDataProtocol {
         navBar.setItems([navItem], animated: false)
         tableView.reloadData()
     }
+   
 }
